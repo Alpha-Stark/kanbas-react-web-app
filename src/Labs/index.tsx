@@ -7,7 +7,8 @@ import TOC from "./TOC"
 function Labs() {
     return (
         <div id="wd-labs">
-            <h1>Labs</h1>
+            <h1>Mann Arvindbhai Savani</h1>
+            <h2>Labs</h2>
             <TOC />
             <Routes>
                 <Route path="/" element={<Navigate to="Lab1" />} />
