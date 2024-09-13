@@ -1,4 +1,4 @@
-// From branch "a1"
+// From branch "a1" for seperate deployment
 import { Navigate, Route, Routes } from "react-router"
 import Lab1 from "./Lab1"
 import Lab2 from "./Lab2"
