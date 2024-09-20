@@ -142,7 +142,6 @@ function Lab1() {
                 Loading a local image:
                 <br />
                 <img id="wd-teslabot" alt='' src="/images/TeslaBot.jpg" height="200px" />
-                <img id="wd-teslabot" alt='' src="/images/TeslaBot.jpg" height="200px" />
             </div>
             <div id="wd-forms">
                 <h4>Form Elements</h4>
