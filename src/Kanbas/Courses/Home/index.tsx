@@ -3,16 +3,20 @@ import CourseStatus from "./Status"
 
 function Home() {
     return (
-        <table id="wd-home">
+        <table id=
+            "wd-home">
             <tr>
-                <td valign="top">
+                <td valign=
+                    "top">
                     <Modules />
                 </td>
-                <td valign="top">
+                <td valign=
+                    "top">
                     <CourseStatus />
-                </td> </tr>
+                </td>
+            </tr>
         </table>
-    )
+    );
 }
 
 export default Home

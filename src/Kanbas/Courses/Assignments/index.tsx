@@ -13,10 +13,28 @@ function Assignments() {
                     <a className="wd-assignment-link"
                         href="#/Kanbas/Courses/1234/Assignments/123">
                         A1 - ENV + HTML
-                    </a> </li>
-                <li className="wd-assignment-list-item">
+                    </a>
+                    <div><text>Multiple Modules | <b>Not Available Until</b> May 6 at 12:00 AM |</text></div>
+                    <div><text><b>Due</b> May 13 at 11:59 PM | 100 pts</text></div>
+                </li>
+                <li className="wd-assignment-list-item" style={{ margin: '1rem 0rem' }}>
                     {/* Complete On Your Own */}
-                </li> </ul>
+                    <a className="wd-assignment-link"
+                        href="#/Kanbas/Courses/1234/Assignments/123">
+                        A2 - CSS + BOOTSTRAP
+                    </a>
+                    <div><text>Multiple Modules | <b>Not Available Until</b> May 13 at 12:00 AM |</text></div>
+                    <div><text><b>Due</b> May 20 at 11:59 PM | 100 pts</text></div>
+                </li>
+                <li className="wd-assignment-list-item" style={{ margin: '1rem 0rem' }}>
+                    <a className="wd-assignment-link"
+                        href="#/Kanbas/Courses/1234/Assignments/123">
+                        A3 - JAVASCRIPT + REACT
+                    </a>
+                    <div><text>Multiple Modules | <b>Not Available Until</b> May 20 at 12:00 AM |</text></div>
+                    <div><text><b>Due</b> May 27 at 11:59 PM | 100 pts</text></div>
+                </li>
+            </ul>
         </div>
     )
 }
