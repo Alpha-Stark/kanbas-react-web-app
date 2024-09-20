@@ -68,7 +68,13 @@ function Lab1() {
                 </ol>
 
                 My favorite recipe:
-                <ol id="wd-your-favorite-recipe">{/* complete on your own */}</ol>
+                <ol id="wd-your-favorite-recipe">
+                    {/* complete on your own */}
+                    <li> Soak the Ingredients.</li>
+                    <li> Blend the Batter.</li>
+                    <li> Cooking the Dosa.</li>
+                    <li> Serve with Coconut chutney & Sambar.</li>
+                </ol>
 
                 <h5>Unordered List Tag</h5>
                 My favorite books (in no particular order)
@@ -82,6 +88,10 @@ function Lab1() {
                 Your favorite books (in no particular order)
                 <ul id="wd-your-books">
                     {/* complete on your own */}
+                    <li>The Alchemist</li>
+                    <li>Atomic Habits</li>
+                    <li>The Immortals of Meluha</li>
+                    <li>The Subtle Are of Not Giving a F*uck</li>
                 </ul>
             </div>
             <div id="wd-tables">
