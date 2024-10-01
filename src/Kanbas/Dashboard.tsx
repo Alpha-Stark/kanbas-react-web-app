@@ -11,7 +11,7 @@ function Dashboard() {
                     <div>
                         <Link className="wd-dashboard-course-link"
                             to="/Kanbas/Courses/1234/Home">
-                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" alt="" /><br />
+                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" width="300" alt="" /><br />
                             CS1234 React JS
                         </Link>
                         <p className="wd-dashboard-course-title">
@@ -25,7 +25,7 @@ function Dashboard() {
                     <div>
                         <Link className="wd-dashboard-course-link"
                             to="/Kanbas/Courses/1234/Home">
-                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" alt="" /><br />
+                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" width="300" alt="" /><br />
                             CS1234 React JS
                         </Link>
                         <p className="wd-dashboard-course-title">
@@ -39,7 +39,7 @@ function Dashboard() {
                     <div>
                         <Link className="wd-dashboard-course-link"
                             to="/Kanbas/Courses/1234/Home">
-                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" alt="" /><br />
+                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" width="300" alt="" /><br />
                             CS1234 React JS
                         </Link>
                         <p className="wd-dashboard-course-title">
@@ -53,7 +53,7 @@ function Dashboard() {
                     <div>
                         <Link className="wd-dashboard-course-link"
                             to="/Kanbas/Courses/1234/Home">
-                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" alt="" /><br />
+                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" width="300" alt="" /><br />
                             CS1234 React JS
                         </Link>
                         <p className="wd-dashboard-course-title">
@@ -67,7 +67,7 @@ function Dashboard() {
                     <div>
                         <Link className="wd-dashboard-course-link"
                             to="/Kanbas/Courses/1234/Home">
-                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" alt="" /><br />
+                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" width="300" alt="" /><br />
                             CS1234 React JS
                         </Link>
                         <p className="wd-dashboard-course-title">
@@ -81,7 +81,7 @@ function Dashboard() {
                     <div>
                         <Link className="wd-dashboard-course-link"
                             to="/Kanbas/Courses/1234/Home">
-                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" alt="" /><br />
+                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" width="300" alt="" /><br />
                             CS1234 React JS
                         </Link>
                         <p className="wd-dashboard-course-title">
@@ -95,7 +95,7 @@ function Dashboard() {
                     <div>
                         <Link className="wd-dashboard-course-link"
                             to="/Kanbas/Courses/1234/Home">
-                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" alt="" /><br />
+                            <img src="https://a1--kanbas-react-web-app-suf-2024.netlify.app/images/reactjs.jpg" width="300" alt="" /><br />
                             CS1234 React JS
                         </Link>
                         <p className="wd-dashboard-course-title">
