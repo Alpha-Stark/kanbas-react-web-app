@@ -10,7 +10,7 @@ function CoursesNavigation() {
             <Link id="wd-course-quizzes-link" className="list-group-item text-danger border border-0" to="/Kanbas/Courses/1234/Assignments">Assignments</Link>
             <Link id="wd-course-assignments-link" className="list-group-item text-danger border border-0" to="/Kanbas/Courses/1234/Quizzes">Quizzes</Link>
             <Link id="wd-course-grades-link" className="list-group-item text-danger border border-0" to="/Kanbas/Courses/1234/Grades">Grades</Link>
-            <Link id="wd-course-people-link" className="list-group-item text-danger border border-0" to="/Kanbas/People">People</Link>
+            <Link id="wd-course-people-link" className="list-group-item text-danger border border-0" to="/Kanbas/Courses/1234/People">People</Link>
         </div>
     )
 }
