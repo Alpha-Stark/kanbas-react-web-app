@@ -2,11 +2,13 @@ function Assignments() {
     return (
         <div id="wd-assignments">
             <input id="wd-search-assignment"
-                placeholder="Search for Assignments" />
-            <button id="wd-add-assignment-group">+ Group</button>
-            <button id="wd-add-assignment">+ Assignment</button>
-            <h3 id="wd-assignments-title">
-                ASSIGNMENTS 40% of Total <button>+</button>
+                placeholder="Search for Assignments"
+                style={{ marginBottom: '1rem', padding: '0.1rem', width: "12rem" }} /> {/* Adjusted input padding/margin */}
+
+            <button id="wd-add-assignment-group" style={{ marginRight: '0.5rem', padding: '0.1rem 1rem' }}>+ Group</button>
+            <button id="wd-add-assignment" style={{ padding: '0.1rem 1rem' }}>+ Assignment</button>
+            <h3 id="wd-assignments-title" style={{ marginBottom: '1rem', fontSize: '1.5rem' }}>
+                ASSIGNMENTS 40% of Total <button style={{ padding: '0.1rem 0.5rem' }}>+</button>
             </h3>
             <ul id="wd-assignment-list">
                 <li className="wd-assignment-list-item">
