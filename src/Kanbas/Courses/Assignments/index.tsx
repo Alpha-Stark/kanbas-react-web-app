@@ -1,4 +1,10 @@
+import { useParams } from "react-router";
+import * as db from "../../Database";
+
+
 function Assignments() {
+    const assignments = db.assignments;
+    const { cid } = useParams();
     return (
         <div id="wd-assignments">
             <input id="wd-search-assignment"
@@ -11,7 +17,21 @@ function Assignments() {
                 ASSIGNMENTS 40% of Total <button style={{ padding: '0.1rem 0.5rem' }}>+</button>
             </h3>
             <ul id="wd-assignment-list">
-                <li className="wd-assignment-list-item">
+                {
+                    assignments.map((assignment) => (
+                        assignment.course === cid && (
+                            <li className="wd-assignment-list-item" key={assignment._id}>
+                                <a className="wd-assignment-link"
+                                    href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
+                                    {assignment.title}
+                                </a>
+                                <div><text>Multiple Modules | <b>Not Available Until</b> {assignment.unavailableUntil} at {assignment.unavailableUntilTime} |</text></div>
+                                <div><text><b>Due</b> {assignment.dueDate} at {assignment.dueDateTime} | {assignment.points} pts</text></div>
+                            </li>
+                        )
+                    ))
+                }
+                {/* <li className="wd-assignment-list-item">
                     <a className="wd-assignment-link"
                         href="#/Kanbas/Courses/1234/Assignments/123">
                         A1 - ENV + HTML
@@ -20,7 +40,6 @@ function Assignments() {
                     <div><text><b>Due</b> May 13 at 11:59 PM | 100 pts</text></div>
                 </li>
                 <li className="wd-assignment-list-item" style={{ margin: '1rem 0rem' }}>
-                    {/* Complete On Your Own */}
                     <a className="wd-assignment-link"
                         href="#/Kanbas/Courses/1234/Assignments/123">
                         A2 - CSS + BOOTSTRAP
@@ -35,7 +54,7 @@ function Assignments() {
                     </a>
                     <div><text>Multiple Modules | <b>Not Available Until</b> May 20 at 12:00 AM |</text></div>
                     <div><text><b>Due</b> May 27 at 11:59 PM | 100 pts</text></div>
-                </li>
+                </li> */}
             </ul>
         </div>
     )

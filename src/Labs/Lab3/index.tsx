@@ -1,6 +1,29 @@
+import Add from "./Add"
+import Highlight from "./Highlight"
+import Square from "./Square"
+import VariablesAndConstants from "./VariablesAndConstants"
+
 function Lab3() {
+    console.log('Hello World!');
     return (
-        <h2>Lab3</h2>
+        <div id="wd-lab3">
+            <h3>Lab 3</h3>
+            <h3>JavaScript</h3>
+            <VariablesAndConstants />
+
+            <Add a={3} b={4} />
+            <h4>Square of 4</h4>
+            <Square>4</Square>
+            <hr />
+
+            <Highlight>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitratione eaque illo minus cum, saepe totam
+                vel nihil repellat nemo explicabo excepturi consectetur. Modi omnis minus sequi maiores, provident voluptates.
+            </Highlight>
+
+
+        </div>
+
     )
 }
 

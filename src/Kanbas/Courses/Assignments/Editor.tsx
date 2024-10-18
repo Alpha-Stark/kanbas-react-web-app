@@ -1,4 +1,8 @@
+import { useParams } from "react-router";
+
 function AssignmentEditor() {
+    const { aid } = useParams();
+    const { cid } = useParams();
     return (
         <div id="wd-assignments-editor">
             <label htmlFor="wd-name">Assignment Name</label>
