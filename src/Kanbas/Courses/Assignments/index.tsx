@@ -1,63 +1,78 @@
-import { useParams } from "react-router";
-import * as db from "../../Database";
+import { BsGripVertical } from "react-icons/bs";
+import { useParams } from "react-router-dom";
+import LessonControlButtons from "../Modules/LessonControlButtons";
+import { IoEllipsisVertical } from "react-icons/io5";
+import ModulesControls from "../Modules/ModulesControls";
+import { HiOutlinePencilAlt } from "react-icons/hi";
+import { assignments } from "../../Database";
 
 
-function Assignments() {
-    const assignments = db.assignments;
-    const { cid } = useParams();
+export default function Assignments() {
+    const { cid } = useParams(); // Extract course ID from route params
+
     return (
         <div id="wd-assignments">
-            <input id="wd-search-assignment"
-                placeholder="Search for Assignments"
-                style={{ marginBottom: '1rem', padding: '0.1rem', width: "12rem" }} /> {/* Adjusted input padding/margin */}
+            <ModulesControls />
+            <br /><br /><br />
+            <br />
+            <ul id="wd-modules" className="list-group rounded-0">
+                <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+                    <div className="wd-title p-3 ps-2 bg-secondary">
+                        <BsGripVertical className="me-2 fs-3" />
+                        Assignments
+                        <div className="float-end">
+                            <a
+                                style={{
+                                    border: '1px solid #000',
+                                    borderRadius: '15px',
+                                    padding: '2px 10px',
+                                    marginRight: '10px',
+                                    color: '#000',
+                                    textDecoration: 'none',
+                                }}
+                                href="/Kanbas/Courses/Assignments/Grades"
+                            >
+                                40% of Total
+                            </a>
+                            <button style={{
+                                padding: '0.1rem 0.5rem',
+                                border: "none",
+                                backgroundColor: "none",
+                            }}>+</button>
+                            <IoEllipsisVertical className="fs-4" />
+                        </div>
+                    </div>
+                    <ul className="wd-lessons list-group rounded-0">
+                        {assignments
+                            .filter((assignment: any) => assignment.course === cid) // Filter assignments by course ID
+                            .map((assignment: any) => (
+                                <li
+                                    key={assignment._id}
+                                    className="wd-lesson list-group-item p-3 ps-1 d-flex align-items-start"
+                                >
+                                    <BsGripVertical className="me-2 fs-3" />
+                                    <HiOutlinePencilAlt
+                                        className="me-2"
+                                        style={{ color: "#000", fontSize: "2rem" }}
+                                    />
 
-            <button id="wd-add-assignment-group" style={{ marginRight: '0.5rem', padding: '0.1rem 1rem' }}>+ Group</button>
-            <button id="wd-add-assignment" style={{ padding: '0.1rem 1rem' }}>+ Assignment</button>
-            <h3 id="wd-assignments-title" style={{ marginBottom: '1rem', fontSize: '1.5rem' }}>
-                ASSIGNMENTS 40% of Total <button style={{ padding: '0.1rem 0.5rem' }}>+</button>
-            </h3>
-            <ul id="wd-assignment-list">
-                {
-                    assignments.map((assignment) => (
-                        assignment.course === cid && (
-                            <li className="wd-assignment-list-item" key={assignment._id}>
-                                <a className="wd-assignment-link"
-                                    href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
-                                    {assignment.title}
-                                </a>
-                                <div><text>Multiple Modules | <b>Not Available Until</b> {assignment.unavailableUntil} at {assignment.unavailableUntilTime} |</text></div>
-                                <div><text><b>Due</b> {assignment.dueDate} at {assignment.dueDateTime} | {assignment.points} pts</text></div>
-                            </li>
-                        )
-                    ))
-                }
-                {/* <li className="wd-assignment-list-item">
-                    <a className="wd-assignment-link"
-                        href="#/Kanbas/Courses/1234/Assignments/123">
-                        A1 - ENV + HTML
-                    </a>
-                    <div><text>Multiple Modules | <b>Not Available Until</b> May 6 at 12:00 AM |</text></div>
-                    <div><text><b>Due</b> May 13 at 11:59 PM | 100 pts</text></div>
+                                    <div className="flex-grow-1">
+                                        <a className="wd-assignment-link"
+                                            href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
+                                            {assignment.title}
+                                        </a>
+                                        <div className="text-start">
+                                            <span className="text-danger">Multiple Modules</span> | <b>Not Available until</b> {assignment.unavailableUntil} {assignment.unavailableTime}
+                                            <br />
+                                            Due {assignment.dueDate} {assignment.dueDateTime} | {assignment.points} pts
+                                        </div>
+                                    </div>
+                                    <LessonControlButtons />
+                                </li>
+                            ))}
+                    </ul>
                 </li>
-                <li className="wd-assignment-list-item" style={{ margin: '1rem 0rem' }}>
-                    <a className="wd-assignment-link"
-                        href="#/Kanbas/Courses/1234/Assignments/123">
-                        A2 - CSS + BOOTSTRAP
-                    </a>
-                    <div><text>Multiple Modules | <b>Not Available Until</b> May 13 at 12:00 AM |</text></div>
-                    <div><text><b>Due</b> May 20 at 11:59 PM | 100 pts</text></div>
-                </li>
-                <li className="wd-assignment-list-item" style={{ margin: '1rem 0rem' }}>
-                    <a className="wd-assignment-link"
-                        href="#/Kanbas/Courses/1234/Assignments/123">
-                        A3 - JAVASCRIPT + REACT
-                    </a>
-                    <div><text>Multiple Modules | <b>Not Available Until</b> May 20 at 12:00 AM |</text></div>
-                    <div><text><b>Due</b> May 27 at 11:59 PM | 100 pts</text></div>
-                </li> */}
             </ul>
-        </div>
-    )
+        </div >
+    );
 }
-
-export default Assignments

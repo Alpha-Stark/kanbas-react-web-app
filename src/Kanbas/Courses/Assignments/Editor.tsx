@@ -1,112 +1,141 @@
 import { useParams } from "react-router";
+import { assignments } from "../../Database";
 
-function AssignmentEditor() {
-    const { aid } = useParams();
+export default function AssignmentEditor() {
     const { cid } = useParams();
-    return (
-        <div id="wd-assignments-editor">
-            <label htmlFor="wd-name">Assignment Name</label>
-            <input id="wd-name" value={`Assignment ${aid}`} /><br /><br />
-            <textarea id="wd-description">
-                The assignment is available online Submit a link to the landing page of
-            </textarea>
-            <br />
-            <table>
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-points">Points</label>
-                    </td>
-                    <td>
-                        <input id="wd-points" value={100} />
-                    </td>
-                </tr>
-                {/* Complete on your own */}
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-group">Assignment Group</label>
-                    </td>
-                    <td>
-                        <select id="wd-group">
-                            <option value="ASSIGNMENTS">ASSIGNMENTS</option>
-                        </select>
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-display-grade-as">Display Grade As</label>
-                    </td>
-                    <td>
-                        <select id="wd-display-grade-as">
-                            <option value="Percentage">Percentage</option>
-                        </select>
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        <label htmlFor="wd-submission-type">Submission Type</label>
-                    </td>
-                    <td>
-                        <select id="wd-submission-type">
-                            <option value="Online">Online</option>
-                        </select>
-                        <br /><br />
-                        <label htmlFor="wd-text-entry">Online Entry Options</label><br />
-                        <input type="checkbox" id="wd-text-entry" />
-                        <label htmlFor="wd-text-entry">Text Entry</label><br />
-                        <input type="checkbox" id="wd-website-url" />
-                        <label htmlFor="wd-website-url">Website URL</label><br />
-                        <input type="checkbox" id="wd-media-recordings" />
-                        <label htmlFor="wd-media-recordings">Media Recordings</label><br />
-                        <input type="checkbox" id="wd-student-annotation" />
-                        <label htmlFor="wd-student-annotation">Student Annotations</label><br />
-                        <input type="checkbox" id="wd-file-upload" />
-                        <label htmlFor="wd-file-upload">File Uploads</label>
-                    </td>
-                </tr>
-                <br />
-                <tr>
-                    <td align="right" valign="top">
-                        Assign
-                    </td>
-                    <td>
-                        <label>Assign to</label><br />
-                        <textarea id="wd-assign-to" placeholder="Everyone">Everyone</textarea>
-                        <div id="wd-due-date">
-                            <label>Due</label>
-                        </div>
-                        <div id="wd-due-date">
-                            <input type="date" id="wd-due-date" defaultValue="2024-05-13" />
-                        </div>
-                        <div style={{ display: 'flex', gap: '20px' }}>
-                            <div style={{ marginBottom: '20px' }}>
-                                <label htmlFor="wd-available-from">Available From</label><br />
-                                <input type="date" id="available-from" defaultValue="2024-05-06" />
-                            </div>
-                            <div style={{ marginBottom: '20px' }}>
-                                <label htmlFor="wd-available-until">Until</label><br />
-                                <input type="date" id="available-until" defaultValue="2024-05-20" />
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colSpan={2}>
-                        <hr />
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td align="right">
-                        <button style={{ marginRight: '5px' }}>Cancel</button>
-                        <button>Save</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    )
-}
+    const { aid } = useParams();
 
-export default AssignmentEditor
+    return (
+        <div id="wd-assignments-editor" className="container">
+            <div className="mb-3">
+                <label htmlFor="wd-name" className="form-label">Assignment Name</label>
+                <input
+                    type="text"
+                    className="form-control ps-5"
+                    id="wd-name"
+                    placeholder={assignments.find((assignment: any) => assignment._id === aid)?.title}
+                />
+            </div>
+            <div className="mb-3">
+                <textarea
+                    id="wd-description"
+                    className="form-control ps-5"
+                    style={{ height: '250px' }}
+                    placeholder="The assignment is available online. Submit a link to the landing page of your Web application running on Netlify..."
+                />
+            </div>
+            <table className="table table-borderless">
+                <tbody>
+                    <tr>
+                        <td className="text-end">
+                            <label htmlFor="wd-points" className="form-label">Points</label>
+                        </td>
+                        <td>
+                            <input id="wd-points" className="form-control"
+                                value={assignments.find((assignment: any) => assignment._id === aid)?.points}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="text-end">
+                            <label htmlFor="wd-assignments" className="form-label">Online Entry Options</label>
+                        </td>
+                        <td>
+                            <select id="wd-select-one-group" className="form-select">
+                                <option value="COMEDY">Text Entry</option>
+                                <option value="DRAMA">Website URL</option>
+                                <option selected value="SCIFI">Media Recordings</option>
+                                <option value="FANTASY">Student Annotations</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="text-end">
+                            <label htmlFor="wd-display-grade" className="form-label">Display Grade As</label>
+                        </td>
+                        <td>
+                            <select id="wd-select-display-grade" className="form-select">
+                                <option value="COMEDY">Text Entry</option>
+                                <option value="DRAMA">Website URL</option>
+                                <option selected value="SCIFI">Media Recordings</option>
+                                <option value="FANTASY">Student Annotations</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="text-end">
+                            <label htmlFor="wd-submission-type" className="form-label me-3">Submission Type</label>
+                        </td>
+                        <td>
+                            <div className="d-flex align-items-start">
+                                <div className="card flex-fill">
+                                    <div className="card-body">
+                                        <select id="wd-select-submission-type" className="form-select mb-3">
+                                            <option value="COMEDY">Text Entry</option>
+                                            <option value="DRAMA">Website URL</option>
+                                            <option selected value="SCIFI">Media Recordings</option>
+                                            <option value="FANTASY">Student Annotations</option>
+                                        </select>
+                                        <div>
+                                            <label className="form-label">Online Entry Options</label><br />
+                                            <div>
+                                                <input type="checkbox" name="check-genre" id="wd-chkbox-comedy" />
+                                                <label htmlFor="wd-chkbox-comedy" className="ms-1">Text Entry</label><br />
+
+                                                <input type="checkbox" name="check-genre" id="wd-chkbox-drama" />
+                                                <label htmlFor="wd-chkbox-drama" className="ms-1">Website URL</label><br />
+
+                                                <input type="checkbox" name="check-genre" id="wd-chkbox-scifi" />
+                                                <label htmlFor="wd-chkbox-scifi" className="ms-1">Media Recordings</label><br />
+
+                                                <input type="checkbox" name="check-genre" id="wd-chkbox-fantasy" />
+                                                <label htmlFor="wd-chkbox-fantasy" className="ms-1">Student Annotations</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td className="text-end">
+                            <label htmlFor="wd-display-grade" className="form-label me-3">Assign</label>
+                        </td>
+                        <td>
+                            <div className="d-flex align-items-start">
+                                <div className="card flex-fill">
+                                    <div className="card-body">
+                                        <div className="mb-3">
+                                            <label htmlFor="wd-assign-to" className="form-label">Assign to</label>
+                                            <input id="wd-assign-to" className="form-control" value={"Everyone"} readOnly />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="wd-due-date" className="form-label">Due</label>
+                                            <input type="date" id="wd-due-date" className="form-control" value="2000-01-21" />
+                                        </div>
+                                        <div className="mb-3">
+                                            <div className="d-flex align-items-center">
+                                                <label htmlFor="" className="me-2">Available From</label>
+                                                <input type="date" className="form-control me-3"
+                                                    value={assignments.find((assignment: any) => assignment._id === aid)?.unavailableUntil}
+                                                />
+                                                <label htmlFor="" className="me-2">Until</label>
+                                                <input type="date" className="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <div className="text-end mt-3">
+                <button id="wd-add-assignment-group" className="btn btn-secondary">Cancel</button>
+                <button id="wd-add-assignment" className="btn btn-danger">Save</button>
+            </div>
+        </div>
+    );
+}
