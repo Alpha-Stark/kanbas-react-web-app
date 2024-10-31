@@ -1,9 +1,7 @@
 import { FaPlus } from "react-icons/fa6";
-import GreenCheckmark from "./GreenCheckmark";
-// import { MdBlockFlipped } from "react-icons/md";
 import { MdDoNotDisturbAlt } from "react-icons/md";
-
-function ModulesControls() {
+import GreenCheckmark from "./GreenCheckmark";
+export default function ModulesControls() {
     return (
         <div id="wd-modules-controls" className="text-nowrap">
             <button id="wd-add-module-btn" className="btn btn-lg btn-danger me-1 float-end">
@@ -12,37 +10,35 @@ function ModulesControls() {
             <div className="dropdown d-inline me-1 float-end">
                 <button id="wd-publish-all-btn" className="btn btn-lg btn-secondary dropdown-toggle"
                     type="button" data-bs-toggle="dropdown">
-                    <GreenCheckmark /> Publish All </button>
+                    <GreenCheckmark />
+                    Publish All</button>
                 <ul className="dropdown-menu">
                     <li>
                         <a id="wd-publish-all-modules-and-items-btn" className="dropdown-item" href="#">
-                            <GreenCheckmark /> Publish all modules and items</a>
+                            <GreenCheckmark />
+                            Publish all modules and items</a>
                     </li>
                     <li>
                         <a id="wd-publish-modules-only-button" className="dropdown-item" href="#">
-                            <GreenCheckmark /> Publish modules only</a>
-                    </li>
-                    {/* Create two more items with IDs wd-unpublish-all-modules-and-items and
-              wd-unpublish-modules-only with labels Unpublish all modules and items
-              and Unpublish modules only */}
-                    <li>
-                        <a id="wd-unpublish-all-modules-and-items" className="dropdown-item" href="#">
-                            <MdDoNotDisturbAlt style={{ fontSize: "1.3em", marginRight: "2px" }} /> Unpublish all modules and items</a>
+                            <GreenCheckmark />
+                            Publish modules only</a>
                     </li>
                     <li>
-                        <a id="wd-unpublish-modules-only" className="dropdown-item" href="#">
-                            <MdDoNotDisturbAlt style={{ fontSize: "1.3em", marginRight: "2px" }} /> Unpublish modules only</a>
+                        <a id="wd-unpublish-all-modules-and-items-btn" className="dropdown-item" href="#">
+                            <MdDoNotDisturbAlt className="me-1 fs-5" />
+                            Unpublish all modules and items</a>
+                    </li>
+                    <li>
+                        <a id="wd-unpublish-modules-only-button" className="dropdown-item" href="#">
+                            <MdDoNotDisturbAlt className="me-1 fs-5" />
+                            Unpublish modules only</a>
                     </li>
                 </ul>
             </div>
-            {/* [Done]Implement the View Progress and Collapse All buttons with IDs wd-view-progress and wd-collapse-all */}
-            <button id="wd-view-progress" className="btn btn-lg btn-secondary me-1 float-end">
+            <button id="wd-add-view-progress-btn" className="btn btn-lg btn-secondary me-1 float-end">
                 View Progress</button>
-            <button id="wd-collapse-all" className="btn btn-lg btn-secondary me-1 float-end">
+            <button id="wd-add-collapse-all-btn" className="btn btn-lg btn-secondary me-1 float-end">
                 Collapse All</button>
         </div>
-
-    )
+    );
 }
-
-export default ModulesControls

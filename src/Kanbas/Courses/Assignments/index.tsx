@@ -1,78 +1,49 @@
+import "../../styles.css";
 import { BsGripVertical } from "react-icons/bs";
-import { useParams } from "react-router-dom";
-import LessonControlButtons from "../Modules/LessonControlButtons";
-import { IoEllipsisVertical } from "react-icons/io5";
-import ModulesControls from "../Modules/ModulesControls";
-import { HiOutlinePencilAlt } from "react-icons/hi";
-import { assignments } from "../../Database";
-
-
+import { MdOutlineAssignment } from "react-icons/md";
+import AssignmentControlButtons from "./AssignmentControlButtons";
+import DescControlButtons from "./DescControlButtons";
+import AssignmentControls from "./AssignmentControls";
+import { useParams } from "react-router";
+import * as db from "../../Database";
+import { Link, useLocation } from "react-router-dom";
 export default function Assignments() {
-    const { cid } = useParams(); // Extract course ID from route params
-
-    return (
-        <div id="wd-assignments">
-            <ModulesControls />
-            <br /><br /><br />
-            <br />
-            <ul id="wd-modules" className="list-group rounded-0">
-                <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
-                    <div className="wd-title p-3 ps-2 bg-secondary">
-                        <BsGripVertical className="me-2 fs-3" />
-                        Assignments
-                        <div className="float-end">
-                            <a
-                                style={{
-                                    border: '1px solid #000',
-                                    borderRadius: '15px',
-                                    padding: '2px 10px',
-                                    marginRight: '10px',
-                                    color: '#000',
-                                    textDecoration: 'none',
-                                }}
-                                href="/Kanbas/Courses/Assignments/Grades"
-                            >
-                                40% of Total
-                            </a>
-                            <button style={{
-                                padding: '0.1rem 0.5rem',
-                                border: "none",
-                                backgroundColor: "none",
-                            }}>+</button>
-                            <IoEllipsisVertical className="fs-4" />
-                        </div>
-                    </div>
-                    <ul className="wd-lessons list-group rounded-0">
-                        {assignments
-                            .filter((assignment: any) => assignment.course === cid) // Filter assignments by course ID
-                            .map((assignment: any) => (
-                                <li
-                                    key={assignment._id}
-                                    className="wd-lesson list-group-item p-3 ps-1 d-flex align-items-start"
-                                >
-                                    <BsGripVertical className="me-2 fs-3" />
-                                    <HiOutlinePencilAlt
-                                        className="me-2"
-                                        style={{ color: "#000", fontSize: "2rem" }}
-                                    />
-
-                                    <div className="flex-grow-1">
-                                        <a className="wd-assignment-link"
-                                            href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>
-                                            {assignment.title}
-                                        </a>
-                                        <div className="text-start">
-                                            <span className="text-danger">Multiple Modules</span> | <b>Not Available until</b> {assignment.unavailableUntil} {assignment.unavailableTime}
-                                            <br />
-                                            Due {assignment.dueDate} {assignment.dueDateTime} | {assignment.points} pts
-                                        </div>
-                                    </div>
-                                    <LessonControlButtons />
-                                </li>
-                            ))}
-                    </ul>
-                </li>
-            </ul>
-        </div >
-    );
+  const { cid } = useParams();
+  const assignments = db.assignments;
+  return (
+    <div className="me-4">
+      <AssignmentControls /><br /><br /><br /><br />
+      <ul id="wd-modules" className="list-group rounded-0">
+        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+          <div className="wd-title p-3 ps-2 bg-secondary">
+            <BsGripVertical className="me-2 fs-3" />
+            ASSIGNMENTS
+            <AssignmentControlButtons />
+            <span className="float-end border boder-dark rounded p-1">40% of Total</span>
+          </div>
+          <ul className="wd-lessons list-group rounded-0">
+            {assignments.filter((assignment: any) => assignment.course === cid).map((assignment: any) => (
+              <li className="wd-lesson list-group-item p-3 ps-1">
+              <div className="position-absolute top-50 start-0 translate-middle-y">
+                <BsGripVertical className="me-2 fs-3" />
+                <MdOutlineAssignment className="me-2 fs-3" color="green" />
+              </div>
+              <div className="position-absolute top-50 start-50 translate-middle w-75">
+                <Link className="wd-assignment-link text-black link-underline link-underline-opacity-0"
+                  to={`./${assignment._id}`}>
+                  {assignment.title}
+                </Link>
+                <p><text className="text-danger">Multiple Modules</text> | <b>Not Available until</b> {assignment.unlock.split("T")[0]} at {assignment.unlock.split("T")[1]} | <b>Due</b> {assignment.due.split("T")[0]} at {assignment.due.split("T")[1]} | {assignment.points} pts</p>
+              </div>
+              <div className="position-absolute top-50 end-0 translate-middle-y">
+                <DescControlButtons />
+              </div>
+              <br /><br /><br />
+            </li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  );
 }

@@ -1,6 +1,4 @@
-import React from 'react'
-
-function BooleanVariables() {
+export default function BooleanVariables() {
     let numberVariable = 123, floatingPointNumber = 234.345;
     let true1 = true, false1 = false;
     let false2 = true1 && false1;
@@ -22,7 +20,4 @@ function BooleanVariables() {
             false3    = {false3 + ""}    <hr />
         </div>
     );
-
 }
-
-export default BooleanVariables

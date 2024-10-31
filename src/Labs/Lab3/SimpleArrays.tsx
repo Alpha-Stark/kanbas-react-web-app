@@ -1,6 +1,4 @@
-import React from 'react'
-
-function SimpleArrays() {
+export default function SimpleArrays() {
     var functionScoped = 2;
     let blockScoped = 5;
     const constant1 = functionScoped - blockScoped;
@@ -20,7 +18,4 @@ function SimpleArrays() {
             <hr />
         </div>
     );
-
-}
-
-export default SimpleArrays
+}  
