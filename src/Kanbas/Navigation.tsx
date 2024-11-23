@@ -13,7 +13,7 @@ export default function KanbasNavigation() {
     { label: "Calendar", path: "/Kanbas/Calendar", icon: IoCalendarOutline },
     { label: "Inbox", path: "/Kanbas/Inbox", icon: FaInbox },
     { label: "Labs", path: "/Labs", icon: LiaCogSolid },
-    { label: "Landing Page", path: "/LandingPage", icon: FaHome },
+    { label: "Landing Page", path: "/LandingIndex", icon: FaHome },
   ];
   return (
     <div id="wd-kanbas-navigation" style={{ width: 105 }}
