@@ -7,7 +7,7 @@ export default function CoursesNavigation() {
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
       {links.map((link) => (
         <Link to={`./${link}`}
-        className={`list-group-item border border-0 ${pathname.includes(link) ? "active" : "text-danger"}`}>
+          className={`list-group-item border border-0 ${pathname.includes(link) ? "active" : "text-danger"}`}>
           {link}
         </Link>
       ))}

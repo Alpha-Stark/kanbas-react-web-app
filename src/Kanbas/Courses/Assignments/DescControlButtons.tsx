@@ -6,4 +6,5 @@ export default function DescControlButtons() {
       <GreenCheckmark />
       <IoEllipsisVertical className="fs-4" />
     </div>
-);}
+  );
+}
