@@ -3,6 +3,45 @@ const axiosWithCredentials = axios.create({ withCredentials: true });
 export const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 export const USERS_API = `${REMOTE_SERVER}/api/users`;
 
+export const findAllUsers = async () => {
+    const response = await axiosWithCredentials.get(USERS_API);
+    return response.data;
+};
+
+export const findUsersByRole = async (role: string) => {
+    const response = await
+        axios.get(`${USERS_API}?role=${role}`);
+    return response.data;
+};
+
+export const findUsersByPartialName = async (name: string) => {
+    const response = await axios.get(`${USERS_API}?name=${name}`);
+    return response.data;
+};
+
+export const findUserById = async (id: string) => {
+    const url = `${USERS_API}/${id}`;
+    console.log("Final API URL:", url); // Log the final URL
+    try {
+        const response = await axios.get(url);
+        console.log("Response received:", response); // Log the full response
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching user by ID:", error); // Log any errors
+        throw error;
+    }
+};
+
+export const createUser = async (user: any) => {
+    const response = await axios.post(`${USERS_API}`, user);
+    return response.data;
+};
+
+export const deleteUser = async (userId: string) => {
+    const response = await axios.delete(`${USERS_API}/${userId}`);
+    return response.data;
+};
+
 export const createCourse = async (course: any) => {
     const { data } = await axiosWithCredentials.post(`${USERS_API}/current/courses`, course);
     return data;
