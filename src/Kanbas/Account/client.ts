@@ -20,16 +20,8 @@ export const findUsersByPartialName = async (name: string) => {
 };
 
 export const findUserById = async (id: string) => {
-    const url = `${USERS_API}/${id}`;
-    console.log("Final API URL:", url); // Log the final URL
-    try {
-        const response = await axios.get(url);
-        console.log("Response received:", response); // Log the full response
-        return response.data;
-    } catch (error) {
-        console.error("Error fetching user by ID:", error); // Log any errors
-        throw error;
-    }
+    const response = await axios.get(`${USERS_API}/${id}`);
+    return response.data;
 };
 
 export const createUser = async (user: any) => {
@@ -50,6 +42,20 @@ export const createCourse = async (course: any) => {
 export const findMyCourses = async () => {
     const { data } = await axiosWithCredentials.get(`${USERS_API}/current/courses`);
     return data;
+};
+
+export const findCoursesForUser = async (userId: string) => {
+    const response = await axiosWithCredentials.get(`${USERS_API}/${userId}/courses`);
+    return response.data;
+};
+
+export const enrollIntoCourse = async (userId: string, courseId: string) => {
+    const response = await axiosWithCredentials.post(`${USERS_API}/${userId}/courses/${courseId}`);
+    return response.data;
+};
+export const unenrollFromCourse = async (userId: string, courseId: string) => {
+    const response = await axiosWithCredentials.delete(`${USERS_API}/${userId}/courses/${courseId}`);
+    return response.data;
 };
 
 export const signin = async (credentials: any) => {
